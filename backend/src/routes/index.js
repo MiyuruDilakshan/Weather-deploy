@@ -1,6 +1,6 @@
 import express from 'express';
 import weatherController from '../controllers/weatherController.js';
-import authMiddleware from '../middleware/authMiddleware.js';
+import authMiddleware, { errorHandler } from '../middleware/authMiddleware.js';
 import cache from '../config/cache.js';
 
 const router = express.Router();
@@ -14,5 +14,8 @@ router.get('/cache/status', (req, res) => {
   const keys = cache.keys();
   res.json({ stats, keys });
 });
+
+// Error handler
+router.use(errorHandler);
 
 export default router;
