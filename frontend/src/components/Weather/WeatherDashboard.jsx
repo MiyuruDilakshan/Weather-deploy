@@ -18,6 +18,10 @@ const WeatherDashboard = () => {
       setLoading(true);
       const token = await getAccessTokenSilently();
       
+      console.log('Token obtained:', token ? 'Yes' : 'No');
+      console.log('API URL:', process.env.REACT_APP_API_URL);
+      console.log('Auth0 Audience:', process.env.REACT_APP_AUTH0_AUDIENCE);
+      
       const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:5000';
       const endpoint = apiUrl.endsWith('/') ? 'api/weather' : '/api/weather';
       
@@ -33,6 +37,8 @@ const WeatherDashboard = () => {
       setWeatherData(response.data.data);
       setError(null);
     } catch (err) {
+      console.error('Full error:', err);
+      console.error('Error response:', err.response);
       setError(err.response?.data?.error || 'Failed to fetch weather data');
       console.error('Error fetching weather:', err);
     } finally {
