@@ -18,8 +18,11 @@ const WeatherDashboard = () => {
       setLoading(true);
       const token = await getAccessTokenSilently();
       
+      const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+      const endpoint = apiUrl.endsWith('/') ? 'api/weather' : '/api/weather';
+      
       const response = await axios.get(
-        `${process.env.REACT_APP_API_URL}/weather`,
+        `${apiUrl}${endpoint}`,
         {
           headers: {
             Authorization: `Bearer ${token}`
