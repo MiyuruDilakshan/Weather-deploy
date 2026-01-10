@@ -1,0 +1,35 @@
+{
+  "name": "weather-analytics-backend",
+  "version": "1.0.0",
+  "description": "Weather Analytics Application Backend",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "test": "jest"
+  },
+  "keywords": [
+    "weather",
+    "analytics"
+  ],
+  "author": "Fidenz",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "axios": "^1.13.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "express": "^4.22.1",
+    "express-oauth2-jwt-bearer": "^1.7.2",
+    "express-validator": "^7.3.1",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.1.2",
+    "node-cache": "^5.1.2"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.23",
+    "nodemon": "^2.0.22",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.18"
+  }
+}
